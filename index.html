@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAUTON XU</title>
+    <link rel="icon" type="image/x-icon" href="/images/icons/favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet"></head>
+    <style>
+        .slider{
+            position:relative;
+            width:100%;
+            height:auto;
+            margin:0;
+            margin-top:3%;
+            margin-bottom:3%;
+        }
+
+        #img1{
+            position:absolute;
+            width:100%;
+            height:auto;
+            z-index: 1;
+        }
+
+        #img2{
+            position:relative;
+            width:100%;
+            height:auto;
+        }
+
+        .slide{
+            transition:opacity 1s;
+            opacity:0;
+        }
+
+        .slideActive{
+            transition:opacity 1s;
+            opacity:1;
+        }
+
+        .slide img{
+            width: 100%;
+        }
+
+        .slider_rec{
+            position:absolute;
+            display:flex;
+            top:5%;
+            margin:0;
+            margin-top:0%;
+            z-index: 2;
+        }
+
+
+        .rec.active{
+            background-color:#BC2200;
+        }
+
+        .rec{
+            cursor:pointer;
+            height:.5vw;
+            width:50vw;
+            margin-left:.5%;
+            margin-right:.5%;
+            background-color:#761600;
+        }
+
+        @media only screen and (max-width: 480px){
+
+            .slider{
+                margin-top:20%;
+                margin-bottom:20%;
+            }
+
+            #img1{
+                position:relative;
+            }
+
+            .slider_rec{
+                display:none;
+            }
+        }
+    </style>
+<body>
+    <nav class="navigation">
+        <a  class="nav_item" href="index.html"><img id="logo" src="images/icons/logo_3d.png" srcset="images/icons/logo_3d@2x.png 2x" height="100px" width="auto" alt="LOGO"></a>
+        <p class="nav_item"><a href="work.html">WORK</a></p>
+        <p class="nav_item"><a href="about.html">ABOUT</a></p>
+        <p class="nav_item"><a href="contact.html">CONTACT</a></p>
+    </nav>
+
+    <figure class="slider">
+            <div class="slider_rec">
+                <span class="rec active" onmouseover="show(0)"></span>
+                <span class="rec" onmouseover="show(1)"></span>
+            </div>
+            <div class="slider_image">
+                <div class="slideActive"><img id="img1" src="images/screenshots/banner/E7.png" srcset="images/screenshots/banner/E7@2x.png 2x" width="100px" height="auto" alt="Screenshot of E7 Spiccato" ></div>
+                <div class="slideActive"><img id="img2" src="images/screenshots/banner/SBTS.png" srcset="images/screenshots/banner/SBTS@2x.png 2x" width="100px" height="auto" alt="Screenshot of Stranger By The Shore" ></div>
+            </div>
+    </figure>
+
+    <script>
+        function show(n){
+            let i;
+            let img=document.getElementById("img1");
+            let rec = document.getElementsByClassName("rec");
+            if (n == 0){i=1; img.className="slideActive";}
+            if (n == 1){i=0; img.className="slide";}
+            rec[n].className="rec active";
+            rec[i].className="rec";
+        }
+    </script>
+
+    <footer>
+            <img class="title" src="images/name.png" srcset="images/name@2x.png 2x" height="50px" width="auto" alt="Hauton Xu">
+            <p class="description">Video Editor | Colorist | VFX Artist | Art Director</p>
+        </footer>
+</body>
+</html>
